@@ -35,5 +35,9 @@ Get the results
 
 # Change log
 
+## Version 0.2
+Fixed some default values. Was not possible to run the script.
+As settings file had some variable naming differences
+
 ## Version 0.1
 Initial push, MVP

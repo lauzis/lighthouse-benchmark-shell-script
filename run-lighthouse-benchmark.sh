@@ -4,7 +4,6 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 settingsfile=$DIR"/settings.cfg";
-reports_dir=$DIR"/reports/";
 
 
 #checks if settings file exists if not exits
@@ -18,7 +17,7 @@ else
 fi
 
 declare -i counter=0;
-declare -i max_iterations=$settings_max_iterations;
+declare -i max_iterations=$settings_iterations;
 
 preset=""
 if [[ "$settings_desktop_mode" == 1 ]]
@@ -34,7 +33,9 @@ while [[ $counter -lt $max_iterations ]]; do
   counter+=1;
   echo "------"$counter"/"$max_iterations"------";
   lighthouse $url  --quiet --chrome-flags="--headless" --output=json $preset --output-path=$reports_dir$counter-report.json
-  sleep 1;
+  sleep $sleep_time_between_requests;
 done
+
+echo "Reports saved in:" $reports_dir;
 
 exit;
