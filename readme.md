@@ -35,6 +35,9 @@ Get the results
 
 # Change log
 
+## Version 0.3
+Updated reporting, added overal score to the reporting for some use cases when need to check alsoe the speed score for the page
+
 ## Version 0.2
 Fixed some default values. Was not possible to run the script.
 As settings file had some variable naming differences

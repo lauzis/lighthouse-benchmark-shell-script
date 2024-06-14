@@ -32,10 +32,13 @@ echo "Running test on:" $url;
 while [[ $counter -lt $max_iterations ]]; do
   counter+=1;
   echo "------"$counter"/"$max_iterations"------";
+  #echo $url --quiet --chrome-flags="--headless" --output=json $preset --output-path=$reports_dir$counter-report.json
   lighthouse $url  --quiet --chrome-flags="--headless" --output=json $preset --output-path=$reports_dir$counter-report.json
   sleep $sleep_time_between_requests;
 done
 
 echo "Reports saved in:" $reports_dir;
+
+php $DIR"/get-results.php";
 
 exit;
