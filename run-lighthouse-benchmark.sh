@@ -27,10 +27,14 @@ fi
 
 url=$settings_url_to_test;
 
+echo removing old reports in $reports_dir;
+rm $reports_dir* -R;
+
 echo "Running test on:" $url;
 
 while [[ $counter -lt $max_iterations ]]; do
   counter+=1;
+
   echo "------"$counter"/"$max_iterations"------";
   #echo $url --quiet --chrome-flags="--headless" --output=json $preset --output-path=$reports_dir$counter-report.json
   lighthouse $url  --quiet --chrome-flags="--headless" --output=json $preset --output-path=$reports_dir$counter-report.json
